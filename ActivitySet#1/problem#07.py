@@ -1,8 +1,13 @@
 # Strings
 
-text = "X-DSPAM-Confidence:    0.8475"
-
-x =text.find('0.8475')
-y=text[x:]
-y=float(y)
-print(y)
+fname = input("Enter file name: ")
+a = open(fname)
+count = 0
+total = 0
+for line in a:
+    if line.startswith("X-DSPAM-Confidence:"):
+        count = count + 1
+        x = line.lstrip("X-DSPAM-Confidence:")
+        x = float(x)
+        total = total + x
+print("Average spam confidence:",total/count)
