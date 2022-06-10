@@ -1,11 +1,9 @@
-fname = input("Enter file name: ") 
-a = open(fname) 
-count = 0 
-total = 0 
-for line in a: 
-if line.startswith("X-DSPAM-Confidence:"): 
-count = count + 1 
-x = line.lstrip("X-DSPAM-Confidence:") 
-x = float(x) 
-total = total + x 
- print("Average spam confidence:",total/count)
+fhand = open('mbox-short.txt')
+count = 0
+for line in fhand:
+    words = line.split()
+    if len(words) < 3 or words[0] != 'From':
+        continue
+    print(words[1])
+    count += 1
+print('There were %d lines in the file with From as the first word' % count)
