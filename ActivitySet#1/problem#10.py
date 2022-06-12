@@ -1,4 +1,4 @@
 # Dictionaries
 
 filename = "dataset/mbox-short.txt"
-fname = 
+fname = input("enter file name:")
